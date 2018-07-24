@@ -38,8 +38,8 @@ class Form extends React.Component {
     render() {
         return(
         <form onSubmit={this.handleSubmit}  >
-            Username:<input name="username" type="text" value={this.state.username.value} onChange={this.handleChange}/>
-            <p>Password:<input name="password" type="text" value={this.state.password.value} onChange={this.handleChange}/></p>
+            Username:<input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
+            <p>Password:<input name="password" type="text" value={this.state.password} onChange={this.handleChange}/></p>
             <button type="submit" value="Submit">Login</button>
             Not registered yet?
         </form>
