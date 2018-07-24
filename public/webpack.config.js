@@ -1,6 +1,6 @@
 module.exports = {
     mode: "development",
-    entry: "./src/index.js",
+    entry: "./src",
     output: {
     path: '/home/dimitri/test/front/public'+'/static',
         filename: "bundle.js"

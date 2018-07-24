@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import App from './App.js'
 
-ReactDOM.render(<h2>I took over and now i changed dynamicly</h2>, document.getElementById('root'));
+ReactDOM.render(
+    <App/>,
+    document.getElementById('root')
+);
