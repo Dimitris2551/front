@@ -15,23 +15,26 @@ class Form extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({
-            username: event.target.username,
-            password:event.target.password
-        });
+        const name = event.target.name;
+        const value = event.target.value;
+
+        let partialState = {};
+        partialState[name] = value;
+        this.setState(partialState);
+        console.log(this.state);
 
     }
 
     handleSubmit(event){
-        console.log('form submmited ');
+        console.log('form submitted ');
         event.preventDefault();
     }
 
     render() {
         return(
-        <form onSubmit={this.handleSubmit} onChange={this.handleChange} >
-            Username:<input name="username" type="text" value={this.state.username}/>
-            <p>Password:<input name="password" type="text" value={this.state.password}/></p>
+        <form onSubmit={this.handleSubmit}  >
+            Username:<input name="username" type="text" value={this.state.username.value} onChange={this.handleChange}/>
+            <p>Password:<input name="password" type="text" value={this.state.password.value} onChange={this.handleChange}/></p>
             <button type="submit" value="Submit">Login</button>
             Not registered yet?
         </form>
@@ -41,3 +44,4 @@ class Form extends React.Component {
 }
 
 export default Form;
+
