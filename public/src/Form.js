@@ -27,8 +27,7 @@ class Form extends React.Component {
     }
 
     handleSubmit(event){
-        console.log('form submitted ');
-        fetch(`http://localhost:8080/user/find?username=${this.state.username.value}&password=${this.state.password.value}`, {method:'post'})
+        fetch(`http://localhost:8080/user/find?username=${this.state.username}&password=${this.state.password}`, {method:'post'})
             .then(response => response.json())
             .then(data => this.setState({ data }))
             .catch(err => console.error('Caught error: ', err));
