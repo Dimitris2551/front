@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf306d35-8091-429d-8ea8-05b7ff04941b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/src/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/Form.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/static/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/bundle.js" afterDir="false" />
     </list>
@@ -42,8 +41,8 @@
       <file leaf-file-name="Form.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/src/Form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+            <state relative-caret-position="195">
+              <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -257,12 +256,12 @@
       <workItem from="1532422910397" duration="4721000" />
       <workItem from="1532431724197" duration="278000" />
       <workItem from="1532432653712" duration="7106000" />
-      <workItem from="1532500603080" duration="8040000" />
+      <workItem from="1532500603080" duration="13281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60007000" />
+    <option name="totallyTimeSpent" value="65248000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="732" extended-state="6" />
@@ -544,8 +543,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/src/Form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        <state relative-caret-position="195">
+          <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
         </state>
       </provider>
     </entry>

@@ -22,7 +22,8 @@ class Form extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        const body = JSON.stringify({ username: this.state.username, password: this.state.password });
+        console.log("SessionStoragefirst token: "+window.sessionStorage.token);
+        const body = JSON.stringify({ username: this.state.username, password: this.state.password, token:window.sessionStorage.token });
         fetch(`http://localhost:8080/user/find`, {
             method:'post',
             headers: {
@@ -32,11 +33,22 @@ class Form extends React.Component {
             body
         })
             .then(response => response.json())
+            .then(response => {
+                this.setState({ response });
+                if(this.state.response.token)
+                {
+                    window.sessionStorage.token = this.state.response.token;
+                }
+                else if(this.state.response.auth)
+                {
+                    console.log(`auth: ${this.state.response.auth}`);
+                }
+                console.log("SessionStorage token: "+window.sessionStorage.token);
+            })
             .then(data => this.setState({ data }))
             .catch(err => console.error('Caught error: ', err));
-        console.log(this.state.data);
-        window.sessionStorage.token = this.state.data.token;
-        console.log(window.sessionStorage.token);
+        //console.log(this.state.data);
+
     }
 
     render() {
