@@ -42,6 +42,7 @@ class Form extends React.Component {
                 else if(this.state.response.auth)
                 {
                     console.log(`auth: ${this.state.response.auth}`);
+                    this.props.setLoggedIn(true);
                 }
                 console.log("SessionStorage token: "+window.sessionStorage.token);
             })
