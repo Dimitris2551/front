@@ -5,14 +5,8 @@ class Form extends React.Component {
     constructor(props) {
         super(props);
         this.state = {username:"", password:""};
-        this.validate = this.validate.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    validate(event){
-        alert('in validate');
-        event.preventDefault();
     }
 
     handleChange(event) {
@@ -27,12 +21,22 @@ class Form extends React.Component {
     }
 
     handleSubmit(event){
-        fetch(`http://localhost:8080/user/find?username=${this.state.username}&password=${this.state.password}`, {method:'post'})
+        event.preventDefault();
+        const body = JSON.stringify({ username: this.state.username, password: this.state.password });
+        fetch(`http://localhost:8080/user/find`, {
+            method:'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body
+        })
             .then(response => response.json())
             .then(data => this.setState({ data }))
             .catch(err => console.error('Caught error: ', err));
         console.log(this.state.data);
-        event.preventDefault();
+        window.sessionStorage.token = this.state.data.token;
+        console.log(window.sessionStorage.token);
     }
 
     render() {
