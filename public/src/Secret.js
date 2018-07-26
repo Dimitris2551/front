@@ -3,7 +3,8 @@ import React from 'react';
 class Secret extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {response:"server has not responded yet..."};
+        this.state = {response:{secret:"server has not responded yet..."}};
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     componentDidMount(){
@@ -19,14 +20,35 @@ class Secret extends React.Component {
             .then(response => response.json())
             .then(response => {
                 console.log(`response: ${response}`);
-                this.setState({ response:JSON.stringify(response)});
+                this.setState({ response });
 
             })
             .catch(err => console.error('Caught error: ', err));
     }
 
+    handleLogout(){
+        this.props.setLoggedIn(false);
+    }
+
     render() {
-        return this.state.response;
+        let secret = this.state.response.secret;
+        let msg;
+        if(secret)
+        {
+            msg = <div>secret: {secret}</div>;
+        }
+        else
+        {
+            msg = <div>auth: {this.state.response.auth}</div>;
+        }
+        return(
+            <h2>
+                {msg}
+                <p>
+                    <button onClick={this.handleLogout} >Logout</button>
+                </p>
+            </h2>
+        );
     }
 
 

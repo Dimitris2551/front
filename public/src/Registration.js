@@ -2,13 +2,13 @@ import React  from 'react';
 
 
 
-class Form extends React.Component {
+class Registration extends React.Component {
     constructor(props) {
         super(props);
         this.state = {username:"", password:""};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleRegisterClick = this.handleRegisterClick.bind(this);
+        this.handleLoginClick = this.handleLoginClick.bind(this);
     }
 
     handleChange(event) {
@@ -22,8 +22,8 @@ class Form extends React.Component {
 
     }
 
-    handleRegisterClick() {
-        this.props.setNeedToRegister(true);
+    handleLoginClick() {
+        this.props.setNeedToRegister(false);
     }
 
     handleSubmit(event){
@@ -60,17 +60,16 @@ class Form extends React.Component {
     render() {
         return(
             <div>
-        <form onSubmit={this.handleSubmit}  >
-            Username:<input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
-            <p>Password:<input name="password" type="text" value={this.state.password} onChange={this.handleChange}/></p>
-            <button type="submit" value="Submit">Login</button>
-        </form>
-                Not registered yet?<button onClick={this.handleRegisterClick} >Register</button>
+            <form onSubmit={this.handleSubmit}  >
+                Username:<input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
+                <p>Password:<input name="password" type="text" value={this.state.password} onChange={this.handleChange}/></p>
+                <button type="submit" value="Submit">Register</button>
+            </form>
+                Already registered?<button onClick={this.handleLoginClick} >Login</button>
             </div>
-
-    );
+        );
     }
 }
 
-export default Form;
+export default Registration;
 
