@@ -28,9 +28,8 @@ class Registration extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        console.log("SessionStoragefirst token: "+window.sessionStorage.token);
-        const body = JSON.stringify({ username: this.state.username, password: this.state.password, token:window.sessionStorage.token });
-        fetch(`http://localhost:8080/user/find`, {
+        const body = JSON.stringify({ username: this.state.username, password: this.state.password});
+        fetch(`http://localhost:8080/user/add`, {
             method:'post',
             headers: {
                 'Accept': 'application/json',
@@ -41,16 +40,10 @@ class Registration extends React.Component {
             .then(response => response.json())
             .then(response => {
                 this.setState({ response });
-                if(this.state.response.token)
+                if(this.state.response.registered)
                 {
-                    window.sessionStorage.token = this.state.response.token;
+                    this.props.setNeedToRegister(false);
                 }
-                else if(this.state.response.auth)
-                {
-                    console.log(`auth: ${this.state.response.auth}`);
-                    this.props.setLoggedIn(true);
-                }
-                console.log("SessionStorage token: "+window.sessionStorage.token);
             })
             .catch(err => console.error('Caught error: ', err));
         //console.log(this.state.data);
