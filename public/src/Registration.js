@@ -5,7 +5,7 @@ import React  from 'react';
 class Registration extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {username:"", password:""};
+        this.state = {username:"", password:"", secret:"mySecret"};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleLoginClick = this.handleLoginClick.bind(this);
@@ -28,7 +28,7 @@ class Registration extends React.Component {
 
     handleSubmit(event){
         event.preventDefault();
-        const body = JSON.stringify({ username: this.state.username, password: this.state.password});
+        const body = JSON.stringify({ username: this.state.username, password: this.state.password, secret:this.state.secret});
         fetch(`http://localhost:8080/user/add`, {
             method:'post',
             headers: {
@@ -56,6 +56,7 @@ class Registration extends React.Component {
             <form onSubmit={this.handleSubmit}  >
                 Username:<input name="username" type="text" value={this.state.username} onChange={this.handleChange}/>
                 <p>Password:<input name="password" type="text" value={this.state.password} onChange={this.handleChange}/></p>
+                <p>Your secret:<input name="secret" type="text" value={this.state.secret} onChange={this.handleChange} /></p>
                 <button type="submit" value="Submit">Register</button>
             </form>
                 Already registered?<button onClick={this.handleLoginClick} >Login</button>

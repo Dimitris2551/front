@@ -27,6 +27,7 @@ class Secret extends React.Component {
     }
 
     handleLogout(){
+        window.sessionStorage.token = {};
         this.props.setLoggedIn(false);
     }
 
