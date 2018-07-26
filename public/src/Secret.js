@@ -18,9 +18,10 @@ class Secret extends React.Component {
         })
             .then(response => response.json())
             .then(response => {
-                this.setState({ response:JSON.stringify(this.state.response)});
+                console.log(`response: ${response}`);
+                this.setState({ response:JSON.stringify(response)});
+
             })
-            .then(data => this.setState({ data }))
             .catch(err => console.error('Caught error: ', err));
     }
 

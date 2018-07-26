@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf306d35-8091-429d-8ea8-05b7ff04941b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/src/Secret.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/src/LoginControl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/src/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/Form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/src/Secret.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/Secret.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/static/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/static/bundle.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,20 +36,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Secret.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Secret.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/src/Secret.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="135">
+              <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Form.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Form.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/src/Form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-142">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="248">
+              <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -91,9 +89,9 @@
         <option value="$PROJECT_DIR$/public/src/Clock.js" />
         <option value="$PROJECT_DIR$/public/src/LoginControl.js" />
         <option value="$PROJECT_DIR$/public/src/index.js" />
-        <option value="$PROJECT_DIR$/public/src/Form.js" />
         <option value="$PROJECT_DIR$/public/src/secret.js" />
         <option value="$PROJECT_DIR$/public/src/App.js" />
+        <option value="$PROJECT_DIR$/public/src/Form.js" />
         <option value="$PROJECT_DIR$/public/src/Secret.js" />
       </list>
     </option>
@@ -260,12 +258,12 @@
       <workItem from="1532432653712" duration="7106000" />
       <workItem from="1532500603080" duration="13356000" />
       <workItem from="1532524869729" duration="3402000" />
-      <workItem from="1532590059617" duration="4590000" />
+      <workItem from="1532590059617" duration="6859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73315000" />
+    <option name="totallyTimeSpent" value="75584000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="732" extended-state="6" />
@@ -535,17 +533,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/Secret.js">
+    <entry file="file://$PROJECT_DIR$/public/src/Form.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="248">
+          <caret line="47" column="14" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/src/Form.js">
+    <entry file="file://$PROJECT_DIR$/public/src/Secret.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="135">
+          <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
         </state>
       </provider>
     </entry>

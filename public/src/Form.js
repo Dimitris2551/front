@@ -46,7 +46,6 @@ class Form extends React.Component {
                 }
                 console.log("SessionStorage token: "+window.sessionStorage.token);
             })
-            .then(data => this.setState({ data }))
             .catch(err => console.error('Caught error: ', err));
         //console.log(this.state.data);
 
