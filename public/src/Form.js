@@ -26,6 +26,8 @@ class Form extends React.Component {
         this.props.setNeedToRegister(true);
     }
 
+
+
     handleSubmit(event){
         event.preventDefault();
         console.log("SessionStoragefirst token: "+window.sessionStorage.token);
@@ -45,7 +47,7 @@ class Form extends React.Component {
                 {
                     window.sessionStorage.token = this.state.response.token;
                 }
-                else if(this.state.response.auth)
+                if(this.state.response.auth)
                 {
                     console.log(`auth: ${this.state.response.auth}`);
                     this.props.setLoggedIn(true);

@@ -3,7 +3,7 @@ import React from 'react';
 class Secret extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {response:{secret:"server has not responded yet..."}};
+        this.state = {response:{secret:"Loading..."}};
         this.handleLogout = this.handleLogout.bind(this);
     }
 
