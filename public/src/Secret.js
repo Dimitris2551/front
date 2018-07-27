@@ -3,8 +3,25 @@ import React from 'react';
 class Secret extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {response:{secret:"Loading..."}};
+        this.state = {
+            response:"",
+            secret:"Loading...",
+            newTitle:"",
+            newPost:""
+            };
         this.handleLogout = this.handleLogout.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleNewPost = this.handleNewPost.bind(this);
+    }
+
+    handleChange(event) {
+        const name = event.target.name;
+        const value = event.target.value;
+
+        let partialState = {};
+        partialState[name] = value;
+        this.setState(partialState);
+        //console.log(this.state);
     }
 
     componentDidMount(){
@@ -24,6 +41,29 @@ class Secret extends React.Component {
 
             })
             .catch(err => console.error('Caught error: ', err));
+    }
+
+    handleNewPost(event){
+        event.preventDefault();
+        const body = JSON.stringify({ token:window.sessionStorage.token, title:this.state.newTitle, post:this.state.newPost });
+        fetch(`http://localhost:8080/secret/add`, {
+            method:'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body
+        })
+            .then(response => response.json())
+            .then(response => {
+                this.setState({ response });
+                if(this.state.response.added)
+                {
+                    console.log('secret added');
+                }
+            })
+            .catch(err => console.error('Caught error: ', err));
+        //console.log(this.state.data);
     }
 
     handleLogout(){
@@ -53,10 +93,20 @@ class Secret extends React.Component {
         }
         return(
             <div>
-                {msg}
-                <p>
                     <button onClick={this.handleLogout} >Logout</button>
-                </p>
+
+                    <form onSubmit={this.handleNewPost}>
+                        <p><input name="newTitle" value={this.state.newTitle} onChange={this.handleChange} /></p>
+                        <p><textarea name="newPost" value={this.state.newPost} onChange={this.handleChange} ></textarea></p>
+
+                        <p>
+                            <button type="submit" value="Submit">post</button>
+                        </p>
+                    </form>
+
+
+                {msg}
+
             </div>
         );
     }
