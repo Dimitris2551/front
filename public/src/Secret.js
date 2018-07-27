@@ -4,15 +4,15 @@ class Secret extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            response:"",
             secret:"Loading...",
             newTitle:"",
             newPost:"",
-            posts:""
+            posts:[{_id:"1", title:"No posts", secret:"You are very honest. You have no secrets"}]
             };
         this.handleLogout = this.handleLogout.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleNewPost = this.handleNewPost.bind(this);
+        this.callForSecrets = this.callForSecrets.bind(this);
     }
 
     handleChange(event) {
@@ -26,6 +26,10 @@ class Secret extends React.Component {
     }
 
     componentDidMount(){
+        this.callForSecrets();
+    }
+
+    callForSecrets(){
         console.log("SessionStoragefirst token: "+window.sessionStorage.token);
 
         fetch(`http://localhost:8080/secret?token=${window.sessionStorage.token}`, {
@@ -37,9 +41,8 @@ class Secret extends React.Component {
         })
             .then(response => response.json())
             .then(response => {
-                console.log(`response: ${response}`);
-                this.setState({ response });
-
+                console.log(`posts: ${response}`);
+                this.setState({ posts:response.docs });
             })
             .catch(err => console.error('Caught error: ', err));
     }
@@ -57,10 +60,11 @@ class Secret extends React.Component {
         })
             .then(response => response.json())
             .then(response => {
-                this.setState({ response });
-                if(this.state.response.added)
+                this.setState({ added:response.added });
+                if(this.state.added)
                 {
                     console.log('secret added');
+                    this.callForSecrets();
                 }
             })
             .catch(err => console.error('Caught error: ', err));
@@ -73,25 +77,17 @@ class Secret extends React.Component {
     }
 
     render() {
-        let docs = this.state.response.docs;
+        let secrets = this.state.posts;
         let msg;
-        if(docs) {
-            this.state.posts = docs;
-            let secrets = this.state.posts;
-            console.log("secrets: " + this.state.posts);
+        console.log(`secrets: ${secrets}`);
+        const listSecrets = secrets.map((secret) =>
+            <li key={secret._id}>
+                <h3>{secret.title}</h3>
+                <h5><p>{secret.secret}</p></h5>
+            </li>
+        );
+        msg = <ul>{listSecrets}</ul>;
 
-            const listSecrets = secrets.map((secret) =>
-                <li key={secret._id}>
-                    <h3>{secret.title}</h3>
-                    <h5><p>{secret.secret}</p></h5>
-                </li>
-            );
-            msg = <ul>{listSecrets}</ul>;
-        }
-        else
-            {
-                msg = <h3>no secrets found</h3>;
-            }
         return(
             <div>
                     <button onClick={this.handleLogout} >Logout</button>
