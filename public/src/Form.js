@@ -9,6 +9,7 @@ class Form extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleRegisterClick = this.handleRegisterClick.bind(this);
+        this.callForLogin = this.callForLogin.bind(this);
     }
 
     handleChange(event) {
@@ -26,10 +27,11 @@ class Form extends React.Component {
         this.props.setNeedToRegister(true);
     }
 
+    componentDidMount() {
+        this.callForLogin();
+    }
 
-
-    handleSubmit(event){
-        event.preventDefault();
+    callForLogin(){
         console.log("SessionStoragefirst token: "+window.sessionStorage.token);
         const body = JSON.stringify({ username: this.state.username, password: this.state.password, token:window.sessionStorage.token });
         fetch(`http://localhost:8080/user/find`, {
@@ -56,7 +58,11 @@ class Form extends React.Component {
             })
             .catch(err => console.error('Caught error: ', err));
         //console.log(this.state.data);
+    }
 
+    handleSubmit(event){
+        event.preventDefault();
+        this.callForLogin();
     }
 
     render() {

@@ -32,23 +32,32 @@ class Secret extends React.Component {
     }
 
     render() {
-        let secret = this.state.response.secret;
-        let msg;
-        if(secret)
+        let secrets = this.state.response.docs;
+        console.log("secrets: "+secrets);
+        let msg = "";
+
+        if(secrets)
         {
-            msg = <div>secret: {secret}</div>;
+            const listSecrets = secrets.map((secret) =>
+                <li key={secret._id}>
+                    <h3>{secret.title}</h3>
+                    <h5><p>{secret.secret}</p></h5>
+                </li>
+            );
+            msg = <ul>{listSecrets}</ul>;
+
         }
         else
         {
             msg = <div>auth: {this.state.response.auth}</div>;
         }
         return(
-            <h2>
+            <div>
                 {msg}
                 <p>
                     <button onClick={this.handleLogout} >Logout</button>
                 </p>
-            </h2>
+            </div>
         );
     }
 
