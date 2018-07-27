@@ -7,7 +7,8 @@ class Secret extends React.Component {
             response:"",
             secret:"Loading...",
             newTitle:"",
-            newPost:""
+            newPost:"",
+            posts:""
             };
         this.handleLogout = this.handleLogout.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -72,12 +73,13 @@ class Secret extends React.Component {
     }
 
     render() {
-        let secrets = this.state.response.docs;
-        console.log("secrets: "+secrets);
-        let msg = "";
+        let docs = this.state.response.docs;
+        let msg;
+        if(docs) {
+            this.state.posts = docs;
+            let secrets = this.state.posts;
+            console.log("secrets: " + this.state.posts);
 
-        if(secrets)
-        {
             const listSecrets = secrets.map((secret) =>
                 <li key={secret._id}>
                     <h3>{secret.title}</h3>
@@ -85,12 +87,11 @@ class Secret extends React.Component {
                 </li>
             );
             msg = <ul>{listSecrets}</ul>;
-
         }
         else
-        {
-            msg = <div>auth: {this.state.response.auth}</div>;
-        }
+            {
+                msg = <h3>no secrets found</h3>;
+            }
         return(
             <div>
                     <button onClick={this.handleLogout} >Logout</button>
