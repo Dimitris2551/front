@@ -65,6 +65,7 @@ class Secret extends React.Component {
                 {
                     console.log('secret added');
                     this.callForSecrets();
+                    this.setState({newTitle:"", newPost:""});
                 }
             })
             .catch(err => console.error('Caught error: ', err));
